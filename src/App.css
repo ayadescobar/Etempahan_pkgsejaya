@@ -1,31 +1,511 @@
 .App {
-  text-align: center;
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(circle at top, rgba(38, 119, 255, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(5, 11, 30, 0.92) 0%, rgba(11, 19, 49, 0.92) 30%, rgba(9, 14, 31, 0.96) 100%),
+    url('https://i.postimg.cc/wBdBKpVP/516952449-24189886793957128-2145279169268025206-n.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #eff2ff;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  position: relative;
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
+.App::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(71, 214, 255, 0.18), transparent 18%),
+    radial-gradient(circle at 80% 10%, rgba(168, 85, 255, 0.16), transparent 18%),
+    radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.12), transparent 18%);
+  opacity: 0.8;
   pointer-events: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.hero {
+  position: relative;
+  z-index: 1;
+  padding: clamp(3rem, 6vw, 5rem) 1.5rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 60% 30%, rgba(255, 255, 255, 0.1), transparent 24%);
+  pointer-events: none;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: -0.04em;
+  text-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.hero p {
+  margin: 1rem auto 0;
+  max-width: 720px;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #dbeafe;
+}
+
+.manager-card {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  justify-content: center;
+  margin: 2rem auto 0;
+  max-width: 860px;
+  padding: 1.3rem 1.4rem;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(96, 165, 250, 0.18);
+  box-shadow: 0 16px 40px rgba(14, 30, 70, 0.16);
+}
+
+.manager-card img {
+  width: 140px;
+  height: 140px;
+  border-radius: 24px;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.24);
+}
+
+.manager-info {
+  text-align: left;
+}
+
+.manager-label {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #93c5fd;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.manager-info h3 {
+  margin: 0.25rem 0 0.35rem;
+  font-size: 1.4rem;
+  color: #eff6ff;
+}
+
+.manager-name {
+  margin: 0;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.manager-contact {
+  margin: 0.8rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #a5f3fc;
+  font-size: 0.98rem;
+}
+
+.manager-contact a {
+  color: #a5f3fc;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.manager-contact a:hover {
+  color: #7dd3fc;
+}
+
+.whatsapp-icon {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 1.1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  position: relative;
+  z-index: 1;
+  width: min(1240px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
 }
 
-.heart {
-  color: #ff0000;
+.room-list,
+.booking-panel,
+.booking-summary {
+  margin-bottom: 2rem;
 }
 
-.small {
-  font-size: 0.75rem;
+.rooms-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.room-card,
+.booking-form-card,
+.booking-list-card,
+.summary-card,
+.booking-item {
+  background: rgba(10, 18, 44, 0.9);
+  border: 1px solid rgba(130, 180, 255, 0.18);
+  border-radius: 28px;
+  box-shadow: 0 24px 80px rgba(0, 16, 56, 0.25);
+  backdrop-filter: blur(14px);
+}
+
+.room-card,
+.summary-card,
+.booking-form-card,
+.booking-list-card {
+  padding: 1.75rem;
+}
+
+.room-card h3,
+.summary-card h2,
+.booking-form-card h2,
+.booking-list-card h2 {
+  margin: 0 0 0.9rem;
+}
+
+.room-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: rgba(59, 130, 246, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 10px 22px rgba(56, 189, 248, 0.12);
+}
+
+.room-card p {
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.booking-panel {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1.25fr 0.9fr;
+}
+
+.booking-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.booking-form label {
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: rgba(15, 23, 42, 0.82);
+  color: #e2e8f0;
+  padding: 1rem 1rem;
+  border-radius: 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  outline: none;
+  border-color: rgba(96, 165, 250, 0.75);
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.16);
+}
+
+.booking-form textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.primary-button {
+  border: none;
+  border-radius: 999px;
+  padding: 1rem 1.6rem;
+  font-weight: 700;
+  color: #eff6ff;
+  background: linear-gradient(135deg, #5b8cff, #3b82f6 60%, #7c3aed);
+  box-shadow: 0 16px 30px rgba(56, 189, 248, 0.24);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 36px rgba(56, 189, 248, 0.32);
+}
+
+.secondary-button,
+.danger-button {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.95rem 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.secondary-button {
+  background: rgba(255, 255, 255, 0.06);
+  color: #a5b4fc;
+  border-color: rgba(148, 163, 184, 0.24);
+}
+
+.secondary-button:hover {
+  background: rgba(79, 70, 229, 0.18);
+  transform: translateY(-2px);
+}
+
+.danger-button {
+  background: rgba(248, 113, 113, 0.14);
+  color: #fca5a5;
+  border-color: rgba(248, 113, 113, 0.35);
+}
+
+.danger-button:hover {
+  background: rgba(248, 113, 113, 0.24);
+  transform: translateY(-2px);
+}
+
+.message {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(96, 165, 250, 0.24);
+  color: #bfdbfe;
+}
+
+.booking-list-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.booking-list-header select {
+  min-width: 220px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: rgba(15, 23, 42, 0.88);
+  color: #e2e8f0;
+}
+
+.export-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.summary-total {
+  margin: 0.5rem 0 1rem;
+  font-size: 1rem;
+  color: #cbd5e1;
+}
+
+.summary-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.summary-item {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.75));
+  border: 1px solid rgba(99, 102, 241, 0.22);
+  border-radius: 20px;
+  padding: 1.2rem;
+}
+
+.summary-item p {
+  margin: 0;
+  color: #93c5fd;
+  font-size: 0.95rem;
+}
+
+.summary-item strong {
+  display: block;
+  margin-top: 0.55rem;
+  font-size: 1.5rem;
+  color: #eff6ff;
+}
+
+.status-summary {
+  margin-top: 1.5rem;
+}
+
+.status-summary h3 {
+  margin: 0 0 0.9rem;
+  color: #bfdbfe;
+  font-size: 1rem;
+}
+
+.status-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.status-item {
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(96, 165, 250, 0.16);
+  border-radius: 18px;
+  padding: 1rem;
+}
+
+.status-item p {
+  margin: 0;
+  color: #93c5fd;
+  font-size: 0.95rem;
+}
+
+.status-item strong {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  color: #eff6ff;
+}
+
+.booking-status-row {
+  margin-bottom: 0.75rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.status-badge.status-dalam-proses {
+  background: rgba(59, 130, 246, 0.15);
+  color: #bae6fd;
+}
+
+.status-badge.status-disahkan {
+  background: rgba(34, 197, 94, 0.18);
+  color: #a7f3d0;
+}
+
+.status-badge.status-dibatalkan {
+  background: rgba(248, 113, 113, 0.16);
+  color: #fecaca;
+}
+
+.small-note {
+  margin: 0.3rem 0 0;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.booking-items {
+  display: grid;
+  gap: 1rem;
+}
+
+.booking-item {
+  padding: 1.5rem;
+  border-radius: 24px;
+  border: 1px solid rgba(96, 165, 250, 0.16);
+  background: linear-gradient(180deg, rgba(10, 18, 44, 0.88), rgba(10, 18, 44, 0.75));
+}
+
+.booking-meta {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+  font-weight: 700;
+  color: #eff6ff;
+}
+
+.booking-time {
+  color: #7dd3fc;
+  font-weight: 700;
+  margin-bottom: 0.9rem;
+}
+
+.booking-details p {
+  margin: 0.35rem 0;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.empty-state {
+  color: #cbd5e1;
+  padding: 1.2rem;
+  background: rgba(30, 41, 59, 0.7);
+  border-radius: 18px;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.booking-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .booking-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .rooms-grid,
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    padding: 1.5rem 0 3rem;
+  }
+
+  .booking-list-header,
+  .export-actions,
+  .form-actions,
+  .booking-actions {
+    justify-content: center;
+  }
+
+  .booking-list-header select {
+    min-width: auto;
+    width: 100%;
+  }
 }
