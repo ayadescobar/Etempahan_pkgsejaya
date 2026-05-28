@@ -48,8 +48,8 @@ function App() {
   const [editingId, setEditingId] = useState(null);
 
   useEffect(() => {
-    fetchBookings().then((savedBookings) => {
-      setBookings(savedBookings);
+    fetchBookings().then((saved) => {
+      setBookings(saved);
     });
   }, []);
 
@@ -57,13 +57,11 @@ function App() {
     saveBookings(bookings);
   }, [bookings]);
 
-  const isConflict = (roomId, date, start, end, skipId = null) => {
-    return bookings.some((booking) => {
-      if (booking.id === skipId) return false;
-      if (booking.roomId !== roomId || booking.date !== date) return false;
-      return !(end <= booking.start || start >= booking.end);
-    });
-  };
+  const isConflict = (roomId, date, start, end, skipId = null) => bookings.some((booking) => {
+    if (booking.id === skipId) return false;
+    if (booking.roomId !== roomId || booking.date !== date) return false;
+    return !(end <= booking.start || start >= booking.end);
+  });
 
   const handleEdit = (booking) => {
     setForm({

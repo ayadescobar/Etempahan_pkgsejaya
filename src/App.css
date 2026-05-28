@@ -102,32 +102,6 @@
   line-height: 1.5;
 }
 
-.manager-contact {
-  margin: 0.8rem 0 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #a5f3fc;
-  font-size: 0.98rem;
-}
-
-.manager-contact a {
-  color: #a5f3fc;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.manager-contact a:hover {
-  color: #7dd3fc;
-}
-
-.whatsapp-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-}
-
 .container {
   position: relative;
   z-index: 1;
@@ -412,6 +386,32 @@
 .status-badge.status-dibatalkan {
   background: rgba(248, 113, 113, 0.16);
   color: #fecaca;
+}
+
+.manager-contact {
+  margin: 0.8rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #a5f3fc;
+  font-size: 0.98rem;
+}
+
+.manager-contact a {
+  color: #a5f3fc;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.manager-contact a:hover {
+  color: #7dd3fc;
+}
+
+.whatsapp-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
 }
 
 .small-note {
